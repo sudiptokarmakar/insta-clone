@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my ig post</title>
+    <style>
+    body{
+        display: flex;
+        flex-direction: column;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.profile{
+    margin-top: 30px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
+    background-color: rgba(1, 1, 1, .2);
+}
+.profile img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.follow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 10px;
+    background-color: rgba(1, 1, 1, .2);
+}
+span{
+    font-size: 30px;
+    color: red;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.posts .new_post img{
+    width: 400px;
+    height: 400px;
+}
+    </style>
+</head>
+<body>
+    <span>insta clone</span>
+    <div class="profile">
+        <img src="https://images.unsplash.com/photo-1721265250302-c02ea398a73c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8" alt="">
+        <h3>sudipto karmakar</h3>
+        <form action="/posts" method="post">
+            <button>follow</button>
+        </form>
+        <form action="/posts/new" method="get">
+            <button>add post</button>
+        </form>
+    </div>
+    <div class="follow">
+        <h2>followers: 2M</h2>
+        <h2>following:<%= follow %></h2>
+    </div>
+    <hr>
+        <div class="posts">
+            <% for(post of posts){ %>
+            <div class="new_post">
+                <h3><%= post.tittle %></h3>
+                <img src=<%=post.img%>>
+                <p><%= post.caption %></p>
+                 <form action="/posts/<%=post.id%>" method="get">
+                    <button>edit</button>
+                </form>
+                <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+                    <button>delete</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+        
+</body>
+</html>

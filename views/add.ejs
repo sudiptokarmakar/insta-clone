@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        display: flex;
+        flex-direction: column;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+    .main{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <form action="/posts/new" method="post">
+        <div><input type="text" name="tittle" placeholder="enter your tittle"></div>
+        <div><input type="text" name="img" placeholder="enter link of image"></div>
+        <div><textarea name="caption" cols="40" rows="10" placeholder="enter your caption"></textarea></div>
+        <button>submitt</button>
+        
+    </form>
+</div>
+</body>
+</html>
